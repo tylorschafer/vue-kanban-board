@@ -1,23 +1,33 @@
 <template>
   <div id="app" class="min-h-screen w-screen bg-gray-200 flex items-center justify-center">
-    <ul class="w-full max-w-md">
-      <li v-for="user in users" 
-          :key="user.id"
-          class="p-4 mb-3 flex justify-between items-center bg-white shadow rounded-lg cursor-move">
-        <div class="flex items-center">
-          <img class="w-10 h-10 rounded-full" :src="user.avatar" :alt="user.name">
-          <p class="ml-2 text-gray-700 font-semibold font-sans tracking-wide">{{user.name}}</p>
-        </div>
-        {{user.name}}
-      </li>
-    </ul>
+    <draggable
+      :list="users"
+      :animation="200"
+      ghost-class="moving-card"
+      group="users"
+      filter=".action-button"
+      class="w-full max-w-md"
+      tag="ul"
+    >
+      <user-card
+        v-for="user in users"
+        :key="user.id"
+        :user="user"
+        @on-edit="onEdit"
+        @on-delete="onDelete"
+      ></user-card>
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from "vuedraggable";
+import UserCard from "./components/UserCard";
 export default {
-  name: 'App',
+  name: "App",
   components: {
+    draggable,
+    UserCard
   },
   data() {
     return {
@@ -39,8 +49,24 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    onEdit(user) {
+      alert(`Editing ${user.name}`);
+    },
+    onDelete(user) {
+      alert(`Deleting ${user.name}`);
+    }
   }
-}
+};
 </script>
 
+<style>
+.moving-card {
+  opacity: 0.5;
+  background: #F7FAFC;
+  border: 1px solid #4299e1;
+}
+</style>
 
+                  
