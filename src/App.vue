@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import draggable from "vuedraggable";
+import UserCard from "./components/UserCard";
 export default {
   name: "App",
   components: {
@@ -58,5 +60,13 @@ export default {
   }
 };
 </script>
+
+<style>
+.moving-card {
+  opacity: 0.5;
+  background: #F7FAFC;
+  border: 1px solid #4299e1;
+}
+</style>
 
                   
