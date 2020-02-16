@@ -1,6 +1,22 @@
 <template>
   <div id="app" class="min-h-screen w-screen bg-gray-200 flex items-center justify-center">
-
+    <draggable
+      :list="users"
+      :animation="200"
+      ghost-class="moving-card"
+      group="users"
+      filter=".action-button"
+      class="w-full max-w-md"
+      tag="ul"
+    >
+      <user-card
+        v-for="user in users"
+        :key="user.id"
+        :user="user"
+        @on-edit="onEdit"
+        @on-delete="onDelete"
+      ></user-card>
+    </draggable>
   </div>
 </template>
 
