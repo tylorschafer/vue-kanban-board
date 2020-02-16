@@ -26,8 +26,8 @@ import UserCard from "./components/UserCard";
 export default {
   name: "App",
   components: {
-    EditIcon,
-    Trash2Icon
+    draggable,
+    UserCard
   },
   data() {
     return {
