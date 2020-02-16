@@ -8,19 +8,19 @@
           <img class="w-10 h-10 rounded-full" :src="user.avatar" :alt="user.name">
           <p class="ml-2 text-gray-700 font-semibold font-sans tracking-wide">{{user.name}}</p>
         </div>
-        <div class='flex'>
-          <button aria-label='Edit User'
-                  class='p-1 focus:outline-none focus:shadow-outline text-teal-500 hover:text-teal-600'
-                  @click='onEdit(user)'>
-                  <EditIcon/>
+        {{user.name}}
+        <div class="flex">
+          <button aria-label="Edit User"
+                  class="p-1 focus:outline-none focus:shadow-outline text-teal-500 hover:text-teal-600"
+                  @click="onEdit(user)"> 
+            <EditIcon/>
           </button>
           <button aria-label="Delete user"
-            class="p-1 focus:outline-none focus:shadow-outline text-red-500 hover:text-red-600"
-            @click="onDelete(user)">
-              <Trash2Icon/>
+                  class="p-1 focus:outline-none focus:shadow-outline text-red-500 hover:text-red-600"
+                  @click="onDelete(user)">
+            <Trash2Icon/>
           </button>
         </div>
-        {{user.name}}
       </li>
     </ul>
   </div>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   components: {
     EditIcon,
     Trash2Icon
