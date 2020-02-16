@@ -18,6 +18,8 @@
 export default {
   name: 'App',
   components: {
+    EditIcon,
+    Trash2Icon
   },
   data() {
     return {
@@ -37,7 +39,15 @@ export default {
           name: "Steve Jobs",
           avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
         }
-      ]
+      ],
+      methods: {
+        onEdit(user) {
+          alert(`Editing ${user.name}`);
+        },
+        onDelete(user) {
+          alert(`Deleting ${user.name}`);
+        }
+      }
     }
   }
 }
