@@ -7,6 +7,10 @@
         {{user.name}}
       </li>
     </ul>
+    <div class="flex items-center">
+      <img class="w-10 h-10 rounded-full" :src="user.avatar" :alt="user.name">
+      <p class="ml-2 text-gray-700 font-semibold font-sans tracking-wide">{{user.name}}</p>
+    </div>
   </div>
 </template>
 
